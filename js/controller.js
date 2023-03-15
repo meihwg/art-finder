@@ -13,8 +13,8 @@ view.searchBtn.addEventListener("click", function () {
     let value = view.searchInput.value;
     // Modifier la recherche
     search.setSearch(value);
-    // Récupérer les résultats
-    let results = search.getSearchResults();
+    // Lancer la recherche
+    search.getSearchResults();
     // Afficher les résultats
-    view.displayResults(results);
+    view.displayResults(search);
 });

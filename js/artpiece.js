@@ -76,39 +76,39 @@ class artPiece {
     }
 
     // Getters
-    get id() {
+    getId() {
         return this._id;
     }
 
-    get title() {
+    getTitle() {
         return this._title;
     }
 
-    get description() {
+    getDescription() {
         return this._description;
     }
 
-    get author() {
+    getAuthor() {
         return this._author;
     }
 
-    get dates() {
+    getDates() {
         return this._dates;
     }
 
-    get dimensions() {
+    getDimensions() {
         return this._dimensions;
     }
 
-    get image() {
+    getImageLink() {
         return this._imagelink;
     }
 
-    get medium() {
+    getMedium() {
         return this._medium;
     }
 
-    get type() {
+    getType() {
         return this._type;
     }
 }
