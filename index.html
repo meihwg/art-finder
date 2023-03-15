@@ -12,7 +12,7 @@
       <h1>Recherche d'oeuvres d'art</h1>
 
       <p id="explication">
-        cette page utilise l'API publique de l'<a href="https://api.artic.edu/docs/" target="_blank">Institut d'Art de Chicago</a>
+        Cette page utilise l'API publique de l'<a href="https://api.artic.edu/docs/" target="_blank">Institut d'Art de Chicago</a>
         pour rechercher des oeuvres d'art en fonction d'un mot-clé.<br />
       </p>
     </header>
@@ -23,7 +23,7 @@
       <section id="section-recherche">
         <div id="bloc-recherche">
           <!-- Champ de recherche -->
-          <input type="text" placeholder="Que cherchez-vous ?" />
+          <input id="input" type="text" placeholder="Que cherchez-vous ?" />
 
           <!-- Boutons -->
           <button
@@ -111,5 +111,10 @@
         <p class="info-vide">(Aucune recherche favorite)</p>
       </section>
     </main>
+
+    <!-- Inclusions des scripts JS -->
+    <script src="js/view.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/controller.js"></script>
   </body>
 </html>

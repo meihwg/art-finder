@@ -39,7 +39,7 @@ class Search {
      */
     setSearch(value) {
         // TODO: Vérifier si la recherche est valide
-        this._search = value.replace(" ", ",");
+        this._search = "https://api.artic.edu/api/v1/artworks/search?q=" + value.replace(" ", ",") + "&limit=10";
     }
 
     /**
@@ -72,11 +72,20 @@ class Search {
      */
     async getSearchResults() {
         try{
-            const resp = await fetch("https://api.artic.edu/api/v1/artworks/search?q=" + this._search);
-            const data = await resp.json();
+            fetch(this._search)
+                .then(response => response.json())
+                .then(data => {
 
-            // TODO: Voir quoi faire de ça
-            return data;
+                })
+                .catch(error => {
+                    console.error("Echec de la recherche");
+                });
+
+            /*const resp = await fetch(this._search);
+            const data = await resp.json();
+            return data;*/
+
+            // TODO: Récupérer l'image (un autre fetch)
         } catch (e) {
             console.error("Echec de la recherche");
         }
