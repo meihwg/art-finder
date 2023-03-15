@@ -19,6 +19,12 @@ class Search {
     _favorites = {};
 
     /**
+     * Résultats de la recherche
+     * @type {Object}
+     */
+    _results = {};
+
+    /**
      * Constructeur
      */
     constructor() {
@@ -67,6 +73,22 @@ class Search {
     }
 
     /**
+     * Retourne les résultats de la recherche
+     * @returns {Object}
+     */
+    getResults() {
+        return this._results;
+    }
+
+    /**
+     * Modifie les résultats de la recherche
+     * @param {Object} value
+     */
+    setResults(value) {
+        this._results = value;
+    }
+
+    /**
      * Récupérer résultat de la recherche
      * @returns {Promise<*>}
      */
@@ -75,7 +97,10 @@ class Search {
             fetch(this._search)
                 .then(response => response.json())
                 .then(data => {
-
+                    let results = {};
+                    data.array.forEach(element => {
+                        results[element.id] = {"title": element.title, "image": element.image_id, };
+                    });
                 })
                 .catch(error => {
                     console.error("Echec de la recherche");
