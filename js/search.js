@@ -45,7 +45,7 @@ class Search {
      */
     setSearch(value) {
         // TODO: Vérifier si la recherche est valide
-        this._search = "https://api.artic.edu/api/v1/artworks/search?q=" + value.replace(" ", ",") + "&limit=10";
+        this._search = "https://api.artic.edu/api/v1/artworks/search?q=" + value.replace(" ", ",") + "&fields=title,image_id,description,date_start,date_end,dimensions,medium_display,artwork_type_title,artist_title&limit=10";
     }
 
     /**
@@ -97,13 +97,15 @@ class Search {
             fetch(this._search)
                 .then(response => response.json())
                 .then(data => {
-                    let results = {};
-                    data.array.forEach(element => {
-                        results[element.id] = {"title": element.title, "image": element.image_id, };
+                    let results = [];
+                    data.data.forEach(element => {
+                        results.push(new artPiece(element.id, element.title, element.description, element.artist_title, element.date_start, element.date_end, element.dimensions, element.image_id, element.medium_display, element.artwork_type_title));
                     });
+                    this.setResults(results);
+                    console.log(this.getResults());
                 })
                 .catch(error => {
-                    console.error("Echec de la recherche");
+                    console.error("Echec de la recherche" + error);
                 });
 
             /*const resp = await fetch(this._search);
