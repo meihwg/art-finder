@@ -46,7 +46,7 @@ class artPiece {
      * Image de l'oeuvre
      * @type {string}
      */
-    _image;
+    _imagelink;
 
     /**
      * Medium de l'oeuvre
@@ -70,7 +70,7 @@ class artPiece {
         this._author = author;
         this._dates = date_start + " - " + date_end;
         this._dimensions = dimensions;
-        this._image = "https://www.artic.edu/iiif/2" + image;
+        this._imagelink = "https://www.artic.edu/iiif/2/" + image + "/full/843,/0/default.jpg";
         this._medium = medium;
         this._type = type;
     }
@@ -101,7 +101,7 @@ class artPiece {
     }
 
     get image() {
-        return this._image;
+        return this._imagelink;
     }
 
     get medium() {

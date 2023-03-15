@@ -92,30 +92,19 @@ class Search {
      * Récupérer résultat de la recherche
      * @returns {Promise<*>}
      */
-    async getSearchResults() {
-        try{
-            fetch(this._search)
-                .then(response => response.json())
-                .then(data => {
-                    let results = [];
-                    data.data.forEach(element => {
-                        results.push(new artPiece(element.id, element.title, element.description, element.artist_title, element.date_start, element.date_end, element.dimensions, element.image_id, element.medium_display, element.artwork_type_title));
-                    });
-                    this.setResults(results);
-                    console.log(this.getResults());
-                })
-                .catch(error => {
-                    console.error("Echec de la recherche" + error);
+    getSearchResults() {
+        fetch(this._search)
+            .then(response => response.json())
+            .then(data => {
+                let results = [];
+                data.data.forEach(element => {
+                    // Créer un objet artPiece
+                    results.push(new artPiece(element.id, element.title, element.description, element.artist_title, element.date_start, element.date_end, element.dimensions, element.image_id, element.medium_display, element.artwork_type_title));
                 });
-
-            /*const resp = await fetch(this._search);
-            const data = await resp.json();
-            return data;*/
-
-            // TODO: Récupérer l'image (un autre fetch)
-        } catch (e) {
-            console.error("Echec de la recherche");
-        }
+                this.setResults(results);
+            })
+            .catch(error => {
+                console.error("Echec de la recherche" + error);
+            });
     }
-
 }
