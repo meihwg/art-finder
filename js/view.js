@@ -27,11 +27,19 @@ const view = {
             result.classList.add("result-block");
 
             // Ajouter le titre
-            result.innerHTML = "<h2>" + results[i].getTitle() + "</h2>";
+            result.innerHTML = "<h3>" + results[i].getTitle() + " - " + results[i].getAuthor() + "</h3>";
             // Ajouter l'image
             result.innerHTML += "<img src='" + results[i].getImageLink() + "' alt='Image de l'oeuvre'>";
-            // Ajouter l'auteur
-            result.innerHTML += "<p>Auteur : " + results[i].getAuthor() + "</p>";
+            // Ajouter la description
+            result.innerHTML += "<p>" + results[i].getDescription() + "</p>";
+            // Ajouter le type d'oeuvre
+            result.innerHTML += "<p> Type : " + results[i].getType() + "</p>";
+            // Ajouter les dates
+            result.innerHTML += "<p> Dates : " + results[i].getDates() + "</p>";
+            // Ajouter les dimensions
+            result.innerHTML += "<p> Dimensions : " + results[i].getDimensions() + "</p>";
+            // Ajouter le medium
+            result.innerHTML += "<p> Technique : " + results[i].getMedium() + "</p>";
 
             // Ajouter le bloc au conteneur
             this.resultsContainer.appendChild(result);
