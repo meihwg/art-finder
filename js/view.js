@@ -10,10 +10,11 @@ const view = {
     searchBtn: document.getElementById("search-button"),
     favoriteBtn: document.getElementById("favorite-button"),
     resultsContainer: document.getElementById("results-container"),
+    favoritesContainer: document.getElementById("favorites-list"),
 
     /**
      * Affiche les résultats
-     * @param {Promise<*>} results
+     * @param {Search} search
      */
     displayResults(search) {
         // Récupérer les résultats à afficher
@@ -52,7 +53,37 @@ const view = {
             // Ajouter le bloc au conteneur
             this.resultsContainer.appendChild(result);
         }
-
-
     },
+
+    /**
+     * Affiche les favoris
+     * @param {Search} search
+     */
+    displayFavorites(search) {
+        // Récupérer les favoris à afficher
+        let favorites = search.getFavorites();
+        // Si il n'y a pas de favoris
+        if (favorites.length == 0) {
+            this.favoritesContainer.innerHTML = "<p>Vous n'avez pas encore de favoris</p>";
+            return;
+        }
+        // Vider le conteneur
+        this.favoritesContainer.innerHTML = "";
+        // Pour chaque favoris
+        for (let i = 0; i < favorites.length; i++) {
+            // Créer un bloc
+            let result = document.createElement("div");
+            // Ajouter la classe
+            result.classList.add("favorite-button");
+
+            // Ajouter le nom du favoris
+            result.innerHTML = "<span title='Relancer la recherche'>" + favorites[i] + "</span> <p title='Supprimer le favoris'>x</p>";
+
+            // Ajouter le bloc au conteneur
+            this.favoritesContainer.appendChild(result);
+        }
+
+        // Changer l'étoile
+        
+    }
 };

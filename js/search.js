@@ -16,7 +16,7 @@ class Search {
      * Favoris
      * @type {array}
      */
-    _favorites = {};
+    _favorites = [];
 
     /**
      * Résultats de la recherche
@@ -50,10 +50,11 @@ class Search {
 
     /**
      * Retourne un favoris
-     * @param {number} index
+     * @returns {array}
      */
-    getFavorite(index) {
-        return this._favorites[index];
+    getFavorites() {
+        this.loadFavorites();
+        return this._favorites;
     }
 
     /**
@@ -89,9 +90,24 @@ class Search {
     }
 
     /**
+     * Sauvegarde les favoris dans le local storage
+     */
+    saveFavorites() {
+        localStorage.setItem("favorites", JSON.stringify(this._favorites));
+    }
+
+    /**
+     * Charge les favoris depuis le local storage
+     */
+    loadFavorites() {
+        this._favorites = JSON.parse(localStorage.getItem("favorites"));
+    }
+
+    /**
      * Récupérer résultat de la recherche
      * @returns {Promise<*>}
      */
+    /* Version sans await (trop lente)
     getSearchResults() {
         fetch(this._search)
             .then(response => response.json())
@@ -106,5 +122,19 @@ class Search {
             .catch(error => {
                 console.error("Echec de la recherche" + error);
             });
+    }*/
+    async getSearchResults() {
+        try {
+            let response = await fetch(this._search);
+            let data = await response.json();
+            let results = [];
+            data.data.forEach(element => {
+                // Créer un objet artPiece
+                results.push(new artPiece(element.id, element.title, element.description, element.artist_title, element.date_start, element.date_end, element.dimensions, element.image_id, element.medium_display, element.artwork_type_title));
+            });
+            this.setResults(results);
+        } catch (error) {
+            console.error("Echec de la recherche" + error);
+        }
     }
 }
