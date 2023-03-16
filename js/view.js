@@ -6,9 +6,9 @@
 const view = {
 
     // Récupérer les éléments graphiques
-    searchInput: document.getElementById("input"),
-    searchBtn: document.getElementById("btn-lancer-recherche"),
-    resultsContainer: document.getElementById("bloc-resultats"),
+    searchInput: document.getElementById("search-input"),
+    searchBtn: document.getElementById("search-button"),
+    resultsContainer: document.getElementById("results-container"),
 
     /**
      * Affiche les résultats

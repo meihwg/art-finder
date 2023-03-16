@@ -1,158 +1,149 @@
-/* Importation de la police Roboto */
 @import url(https://fonts.googleapis.com/css?family=Roboto);
 
-/* Définition des principales couleurs */
+/* Variables */
+
 :root {
-  --text-color: #fafafa; /* (Texte presque blanc) */
-  --background: #34495e; /* (Fond bleu foncé) */
-  --background-button: #bebebe;
-  --main-green: rgb(26, 188, 156);
-  --active-green: rgb(20, 156, 128);
-  --almost-black: #2d2d2d;
+  --white: #fafafa;
+  --black: #2d2d2d;
 }
 
-* {
-  color: var(--text-color);
-}
+/* General */
 
-body {
-  background-color: var(--background);
-  font: 14pt Roboto, Arial, sans-serif;
+*{
+  font-family: poppins, 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
-  width: 90%;
-  margin: 40px auto;
+  box-sizing: border-box;
 }
 
-/* Paragraphes "Aucun résultat..." et "Aucune recherche..." */
-p.info-vide {
-  font-style: italic;
-}
+/* Text */
 
-/* Partie En-tête */
 h1 {
-  text-align: center;
-  font-variant: small-caps;
   font-size: 2.5em;
-  color: var(--main-green);
+  color: var(--white);
+  text-align: center;
+  padding-top: 250px;
 }
-
-#explication {
-  font-size: 1.2em;
-}
-
-/* Conteneur principal */
-#conteneur {
-  display: flex;
-  flex: 1;
-  margin: 30px auto;
-}
-
-/* Section Recherche (avec résultats) */
-#section-recherche {
-  margin-top: 0;
-  flex: 1 1 auto;
-}
-
-#bloc-recherche {
-  display: flex;
-  margin: 0 auto;
-  min-width: 450px;
-  flex-direction: row;
-}
-
-#bloc-recherche > input[type="text"],
-#bloc-recherche > button {
-  display: block;
-  font-size: 1.2em;
-}
-
-#bloc-recherche > input[type="text"] {
-  color: var(--almost-black);
-  flex: 1;
-  padding: 0.7em;
-  border: 0.3em solid var(--main-green);
-}
-
-#bloc-recherche > button {
-  padding: 0.8em 0.8em;
-  /* Bordure invisible pour que le hover ne bouge pas le bouton */
-  border: 1px solid var(--main-green);
-
-  /* Par défaut, les boutons sont en gris
-	 (S'ils sont "clicables", ils passent en vert) */
-  background-color: var(--background-button);
-}
-
-/* Apparences des boutons clicables */
-#bloc-recherche > button.btn_clicable {
-  background-color: var(--main-green);
-}
-
-#bloc-recherche > button:focus {
-  /* Pour éviter un affichage disgracieux
-		quand le bouton reste en focus */
-  outline: 0 !important;
-}
-
-#bloc-recherche > button.btn_clicable:hover {
-  cursor: pointer;
-  border: 1px solid white;
-}
-
-#bloc-recherche > button.btn_clicable:active {
-  background-color: var(--active-green);
-}
-
-/* GIF de chargement (caché par défaut) */
-#bloc-gif-attente {
-  display: none;
-  margin: 40px;
+p {
+  font-size: 1em;
   text-align: center;
 }
 
-#bloc-resultats p.res::before {
-  /* Affichage d'une flèche devant chaque résultat
-		(Cf. https://unicode-table.com/fr/21E8/ ) */
-  content: "\21E8\00A0";
+/* Header */
+
+#banner {
+  background: url("images/Korovin-kukkia.jpg") no-repeat center center fixed;
+  background-size: cover;
+  width: 100%;
+  height: 500px;
+}
+#opacity {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+}
+#intro{
+  color: var(--white);
+  font-size: 1.2em;
+}
+#link{
+  color: var(--white);
 }
 
-/* Section de la barre de séparation */
-#section-separation {
-  border-left: 2px dashed var(--main-green);
-  margin: 0 20px;
+/* Search bar */
+
+#search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+#search input {
+  width: 35%;
+  height: 40px;
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 1.2em;
+}
+#search input:focus {
+  outline: none;
+  border: var(--white);
+}
+#search button {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: var(--white);
+  font-size: 1.2em;
+  margin-left: 10px;
+  padding: 7px;
+}
+#search button:hover {
+  border: var(--white);
 }
 
-/* Section des recherches favorites */
-#section-favoris {
-  flex: 0 0 300px;
-  margin-top: 0;
+/* Main */
+
+main {
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+}
+#separator {
+  border-left: 2px solid var(--black);
+}
+
+/* Results */
+
+#results {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+}
+
+/* Favorites */
+
+#favorites {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  margin-bottom: 200px;
+}
+#favorites h2 {
   margin-bottom: 20px;
 }
-
-#section-favoris h2 {
-  margin-top: 0;
+#favorites ul {
+  list-style: none;
+  justify-content: center;
 }
-
-#section-favoris p {
-  margin-bottom: 8px;
+#favorites li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
 }
-
-#liste-favoris li {
-  margin-bottom: 8px;
+#favorites img{
+  margin-left: 10px;
+}
+#favorites img:hover{
   cursor: pointer;
 }
-
-#liste-favoris li span {
+#favorites span{
   text-decoration: underline;
 }
-
-#liste-favoris li span:hover {
-  color: var(--main-green);
+#favorites span:hover{
+  cursor: pointer;
+}
+#message{
+  font-size: 0.8em;
 }
 
+
+
 /* Media-query pour gérer l'affichage sur petit écran */
-@media (max-width: 900px) {
+/*@media (max-width: 900px) {
   #conteneur {
     flex-direction: column-reverse;
   }
@@ -165,4 +156,4 @@ h1 {
   #section-favoris {
     flex: 0;
   }
-}
+}*/

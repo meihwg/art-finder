@@ -5,112 +5,62 @@
     <meta charset="utf-8" />
     <link rel="shortcut icon" type="image/x-icon" href="favicon-js.ico" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
   </head>
 
   <body>
     <header>
-      <h1>Recherche d'oeuvres d'art</h1>
+      <div id="banner">
+        <div id="opacity">
 
-      <p id="explication">
-        Cette page utilise l'API publique de l'<a href="https://api.artic.edu/docs/" target="_blank">Institut d'Art de Chicago</a>
-        pour rechercher des oeuvres d'art en fonction d'un mot-clé.<br />
-      </p>
+          <h1>Recherche d'oeuvres d'art</h1>
+          <p id="intro">Cette page utilise l'API publique de l'<a href="https://api.artic.edu/docs/" target="_blank" id="link" title="Art Institute of Chicago API">Institut d'Art de Chicago</a>
+            pour rechercher des oeuvres d'art en fonction de mots-clés.</p>
+
+          <div id="search">
+            <input type="text" id="search-input" placeholder="Rechercher une oeuvre d'art" />
+            <button id="favorite-button"><img src="images/bx-star.svg" alt="Etoile de favoris" width="22" title="Ajouter aux favoris"/></button>
+            <button id="search-button"><img src="images/bx-search.svg" alt="Loupe pour recherche" width="22" title="Lancer la recherche"/></button>
+          </div>
+
+        </div>
+      </div>
     </header>
-    <hr />
 
-    <main id="conteneur">
-      <!-- Section de recherche (avec résultats) -->
-      <section id="section-recherche">
-        <div id="bloc-recherche">
-          <!-- Champ de recherche -->
-          <input id="input" type="text" placeholder="Que cherchez-vous ?" />
+    <main>
+      <div id="results">
+        <h2>Résultats de la recherche :</h2>
+        <div id="results-container"> <p>Faîtes une recherche pour voir apparaître le résultat</p> </div>
+      </div>
 
-          <!-- Boutons -->
-          <button
-            id="btn-lancer-recherche"
-            type="button"
-            class="btn_clicable"
-            title="Lancer la recherche"
-          >
-            <!-- Icone Loupe (provenant de flaticon.com) -->
-            <img src="images/loupe.svg" alt="Loupe pour recherche" width="22" />
-          </button>
+      <div id="separator"></div>
 
-          <button
-            id="btn-favoris"
-            type="button"
-            disabled
-            title="Ajouter la recherche aux favoris"
-          >
-            <!-- Icone étoile vide
-							(qui indique que la recherche ne fait pas partie des favoris) -->
-            <img src="images/etoile-vide.svg" alt="Etoile vide" width="22" />
-
-            <!-- Icone étoile pleine
-								(qui indique que la recherche fait partie des favoris) -->
-            <!-- <img src="images/etoile-pleine.svg" alt="Etoile pleine" width="22" > -->
-
-            <!-- (Les 2 icones d'étoile provenant de flaticon.com) -->
-          </button>
-        </div>
-
-        <!-- Résultats de recherche -->
-        <div id="bloc-gif-attente">
-          <img
-            src="images/attente-ajax.gif"
-            alt="GIF Attente de résultats"
-            width="50"
-          />
-        </div>
-        <div id="bloc-resultats">
-          <p class="res">Résultat 1 ...</p>
-          <p class="res">Résultat 2 ...</p>
-          <p class="res">Résultat 3 ...</p>
-          <p class="info-vide">(Aucun résultat trouvé)</p>
-        </div>
-      </section>
-
-      <!-- Section de séparation (avec la bordure verte) -->
-      <section id="section-separation"></section>
-
-      <!-- Section des recherches favorites -->
-      <section id="section-favoris">
-        <h2>Recherches favorites</h2>
-        <p>
-          Cliquer sur une recherche favorite ci-dessus pour relancer celle-ci :
-        </p>
-        <ul id="liste-favoris">
+      <div id="favorites">
+        <h2>Favoris :</h2>
+        <ul id="favorites-list">
           <li>
-            <span title="Cliquer pour relancer la recherche">Grenoble</span>
-            <img
-              src="images/croix.svg"
-              alt="Icone pour supprimer le favori"
-              width="15"
-              title="Cliquer pour supprimer le favori"
-            />
+            <span title="Cliquer pour relancer la recherche">Monet</span> <img src="images/bx-x-circle.svg" alt="Croix pour supprimer" width="22" title="Cliquer pour supprimer le favori"/>
           </li>
           <li>
-            <span title="Cliquer pour relancer la recherche">Lyon</span>
-            <img
-              src="images/croix.svg"
-              alt="Icone pour supprimer le favori"
-              width="15"
-              title="Cliquer pour supprimer le favori"
-            />
+            <span title="Cliquer pour relancer la recherche">Cats painting</span> <img src="images/bx-x-circle.svg" alt="Croix pour supprimer" width="22" title="Cliquer pour supprimer le favori"/>
           </li>
           <li>
-            <span title="Cliquer pour relancer la recherhe.">Web</span>
-            <img
-              src="images/croix.svg"
-              alt="Icone pour supprimer le favori"
-              width="15"
-              title="Cliquer pour supprimer le favori"
-            />
+            <span title="Cliquer pour relancer la recherche">Snow</span> <img src="images/bx-x-circle.svg" alt="Croix pour supprimer" width="22" title="Cliquer pour supprimer le favori"/>
+          </li>
+          <li>
+            <span title="Cliquer pour relancer la recherche">Fantin-Latour</span> <img src="images/bx-x-circle.svg" alt="Croix pour supprimer" width="22" title="Cliquer pour supprimer le favori"/>
+          </li>
+          <li>
+            <p id="message">Aucune recherche favorite</p>
           </li>
         </ul>
-        <p class="info-vide">(Aucune recherche favorite)</p>
-      </section>
-    </main>
+          
+        </div>
+      </div>
+
+    
 
     <!-- Inclusions des scripts JS -->
     <script src="js/view.js"></script>
