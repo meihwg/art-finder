@@ -8,6 +8,7 @@ const view = {
     // Récupérer les éléments graphiques
     searchInput: document.getElementById("search-input"),
     searchBtn: document.getElementById("search-button"),
+    favoriteBtn: document.getElementById("favorite-button"),
     resultsContainer: document.getElementById("results-container"),
 
     /**
@@ -31,9 +32,16 @@ const view = {
             // Ajouter l'image
             result.innerHTML += "<img src='" + results[i].getImageLink() + "' alt='Image de l'oeuvre'>";
             // Ajouter la description
-            result.innerHTML += "<p>" + results[i].getDescription() + "</p>";
+            // raccourcir la description + ajouter ...
+            let description = results[i].getDescription();
+            if(description != null && description.length > 300) {
+                description = description.substring(0, 300) + "...";
+                result.innerHTML += "<p title='" + results[i].getDescription() + "'>" + description + "</p>";
+            } else if(description != null) {
+                result.innerHTML += "<p>" + description + "</p>";
+            }
             // Ajouter le type d'oeuvre
-            result.innerHTML += "<p> Type : " + results[i].getType() + "</p>";
+            result.innerHTML += "<p> Type d'oeuvre : " + results[i].getType() + "</p>";
             // Ajouter les dates
             result.innerHTML += "<p> Dates : " + results[i].getDates() + "</p>";
             // Ajouter les dimensions
