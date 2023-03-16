@@ -24,7 +24,7 @@ const view = {
             // Créer un bloc
             let result = document.createElement("div");
             // Ajouter la classe
-            result.classList.add("bloc-resultat");
+            result.classList.add("result-block");
 
             // Ajouter le titre
             result.innerHTML = "<h2>" + results[i].getTitle() + "</h2>";

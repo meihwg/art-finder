@@ -32,30 +32,31 @@
     <main>
       <div id="results">
         <h2>Résultats de la recherche :</h2>
-        <div id="results-container"> <p>Faîtes une recherche pour voir apparaître le résultat</p> </div>
+        <div id="results-container">
+          <div class="result-block"></div>
+          <p>Faîtes une recherche pour voir apparaître le résultat</p> 
+        </div>
       </div>
 
       <div id="separator"></div>
 
       <div id="favorites">
         <h2>Favoris :</h2>
-        <ul id="favorites-list">
-          <li>
-            <span title="Cliquer pour relancer la recherche">Monet</span> <img src="images/bx-x-circle.svg" alt="Croix pour supprimer" width="22" title="Cliquer pour supprimer le favori"/>
-          </li>
-          <li>
-            <span title="Cliquer pour relancer la recherche">Cats painting</span> <img src="images/bx-x-circle.svg" alt="Croix pour supprimer" width="22" title="Cliquer pour supprimer le favori"/>
-          </li>
-          <li>
-            <span title="Cliquer pour relancer la recherche">Snow</span> <img src="images/bx-x-circle.svg" alt="Croix pour supprimer" width="22" title="Cliquer pour supprimer le favori"/>
-          </li>
-          <li>
-            <span title="Cliquer pour relancer la recherche">Fantin-Latour</span> <img src="images/bx-x-circle.svg" alt="Croix pour supprimer" width="22" title="Cliquer pour supprimer le favori"/>
-          </li>
-          <li>
-            <p id="message">Aucune recherche favorite</p>
-          </li>
-        </ul>
+        <div id="favorites-list">
+          <div class="favorite-button">
+            <span title="Relancer la recherche">Monet</span> <p title="Supprimer le favoris">x</p>
+          </div>
+          <div class="favorite-button">
+            <span title="Relancer la recherche">Cats painting</span> <p title="Supprimer le favoris">x</p>
+          </div>
+          <div class="favorite-button">
+            <span title="Relancer la recherche">Snow</span> <p title="Supprimer le favoris">x</p>
+          </div>
+          <div class="favorite-button">
+            <span title="Relancer la recherche">Fantin-Latour</span> <p title="Supprimer le favoris">x</p>
+          </div>
+          <p id="message">Aucune recherche favorite</p>
+        </div>
           
         </div>
       </div>

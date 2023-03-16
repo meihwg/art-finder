@@ -114,26 +114,30 @@ main {
 #favorites h2 {
   margin-bottom: 20px;
 }
-#favorites ul {
+#favorites-list {
+  display: flex;
+  flex-direction: column;
   list-style: none;
   justify-content: center;
+  align-items: center;
 }
-#favorites li {
+.favorite-button {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
+  border: #2d2d2d 1px solid;
+  border-radius: 20px;
+  width: fit-content;
+  padding: 5px 10px;
 }
-#favorites img{
-  margin-left: 10px;
+.favorite-button p {
+  margin-left: 20px;
 }
-#favorites img:hover{
+.favorite-button p:hover {
   cursor: pointer;
 }
-#favorites span{
-  text-decoration: underline;
-}
-#favorites span:hover{
+.favorite-button span:hover{
   cursor: pointer;
 }
 #message{
