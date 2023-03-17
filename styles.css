@@ -79,7 +79,7 @@ body {
   align-items: center;
   margin-top: 10px;
 }
-#search input {
+#search-input {
   width: 35%;
   height: 40px;
   border-radius: 5px;
@@ -104,6 +104,15 @@ body {
 }
 #search button:hover {
   border: var(--white);
+}
+#limit-input {
+  width: 60px;
+  height: 40px;
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 1em;
+  text-align: left;
+  margin-left: 10px;
 }
 
 /* Main */

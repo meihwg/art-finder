@@ -16,6 +16,7 @@ const view = {
     favorites : document.querySelectorAll(".favorite-button"),
     waitBlock : document.getElementById("wait-block"),
     suggestsList : document.getElementById("suggests-list"),
+    limitInput : document.getElementById("limit-input"),
 
     /**
      * Affiche les résultats

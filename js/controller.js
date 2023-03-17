@@ -17,9 +17,12 @@ window.addEventListener("load", async function () {
 view.searchBtn.addEventListener("click", async function () {
     // Afficher le loader
     view.waitBlock.style.display = "block";
-    // Récupérer la de la recherche
+    // Récupérer la valeur de la recherche
     let value = view.searchInput.value;
+    // Récupérer le nombre de résultats à afficher
+    let limit = view.limitInput.value;
     // Modifier la recherche
+    search.setLimit(limit);
     search.setSearch(value);
     // Lancer la recherche
     search.getSearchResults()

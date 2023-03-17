@@ -25,6 +25,12 @@ class Search {
     _results = {};
 
     /**
+     * Nombre de résultats à afficher
+     * @type {number}
+     */
+    _limit = 32;
+
+    /**
      * Constructeur
      */
     constructor() {
@@ -45,7 +51,23 @@ class Search {
      * @param {string} value
      */
     setSearch(value) {
-        this._search = "https://api.artic.edu/api/v1/artworks/search?q=" + value.replace(" ", ",") + "&fields=title,image_id,description,date_start,date_end,dimensions,medium_display,artwork_type_title,artist_title&limit=30";
+        this._search = "https://api.artic.edu/api/v1/artworks/search?q=" + value.replace(" ", ",") + "&fields=title,image_id,description,date_start,date_end,dimensions,medium_display,artwork_type_title,artist_title&limit=" + this._limit;
+    }
+
+    /**
+     * Retourne le nombre de résultats à afficher
+     * @returns {number}
+     */
+    getLimit() {
+        return this._limit;
+    }
+
+    /**
+     * Modifie le nombre de résultats à afficher
+     * @param {number} value
+     */
+    setLimit(value) {
+        this._limit = value;
     }
 
     /**
