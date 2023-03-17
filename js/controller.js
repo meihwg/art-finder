@@ -34,6 +34,7 @@ view.favoriteBtn.addEventListener("click", function () {
     search.saveFavorites();
     // Afficher les favoris
     view.displayFavorites(search);
+    view.changeFavoriteBtn(search);
 });
 
 // Lorsque l'utilisateur clique sur un favoris
@@ -62,12 +63,13 @@ let deleteClickListeners = function(event) {
     let fav = event.target.parentNode;
     // Récupérer la valeur du favoris
     fav = fav.firstChild.innerHTML;
-    if (confirm("Voulez-vous vraiment supprimer ce favoris ?")) {
+    if (confirm('Voulez-vous vraiment supprimer la recherche "' + fav + '" de vos favoris ?')) {
         // Supprimer le favoris
         search.removeFavorite(fav);
         search.saveFavorites();
         // Afficher les favoris
         view.displayFavorites(search);
+        view.changeFavoriteBtn(search);
     }
 }
 
@@ -75,6 +77,10 @@ let deleteClickListeners = function(event) {
 view.searchInput.addEventListener("keyup", function (event) {
     // Si la touche est entrée
     if (event.keyCode === 13) {
+        // Récupérer la de la recherche
+        let value = view.searchInput.value;
+        // Modifier la recherche
+        search.setSearch(value);
         // Lancer la recherche
         search.getSearchResults()
             .then(() => {
@@ -86,3 +92,4 @@ view.searchInput.addEventListener("keyup", function (event) {
     // Changer l'apparence du bouton favoris
     view.changeFavoriteBtn(search);
 });
+
