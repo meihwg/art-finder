@@ -83,4 +83,11 @@ view.searchInput.addEventListener("keyup", function (event) {
 
     // Changer l'apparence du bouton favoris
     view.changeFavoriteBtn(search);
+
+    // Si le champ de recherche est vide
+    if (view.searchInput.value == "") {
+        favoriteBtn.disabled = true;
+    } else {
+        favoriteBtn.disabled = false;
+    }
 });
