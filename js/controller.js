@@ -45,6 +45,8 @@ view.favoriteBtn.addEventListener("click", function () {
 
 // Lorsque l'utilisateur clique sur un favoris
 let searchClickListeners = function(event) {
+    // Afficher le loader
+    view.waitBlock.style.display = "block";
     // Récupérer la balise a du bouton
     let fav = event.target.parentNode;
     // Récupérer la valeur du favoris
@@ -60,6 +62,8 @@ let searchClickListeners = function(event) {
         .then(() => {
             // Afficher les résultats
             view.displayResults(search);
+            // Cacher le loader
+            view.waitBlock.style.display = "none";
         });
 }
 
