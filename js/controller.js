@@ -47,7 +47,7 @@ let searchClickListeners = function(event) {
     // Afficher la recherche dans le champ de recherche
     view.searchInput.value = fav;
     // Changer l'apparence du bouton favoris
-    changeFavoriteBtn();
+    view.changeFavoriteBtn(search);
     // Lancer la recherche
     search.getSearchResults()
         .then(() => {
@@ -82,16 +82,5 @@ view.searchInput.addEventListener("keyup", function (event) {
     }
 
     // Changer l'apparence du bouton favoris
-    changeFavoriteBtn();
+    view.changeFavoriteBtn(search);
 });
-
-// Change l'apparence du bouton favoris
-let changeFavoriteBtn = function() {
-    if (search.isFavorite(view.searchInput.value)) {
-        view.favoriteBtn.innerHTML = "";
-        view.favoriteBtn.innerHTML = "<img src='images/bxs-star.svg' alt='Etoile de favoris' width='22'/>";
-    } else {
-        view.favoriteBtn.innerHTML = "";
-        view.favoriteBtn.innerHTML = "<img src='images/bx-star.svg' alt='Etoile de favoris' width='22'/>";  
-    }
-}

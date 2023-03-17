@@ -92,5 +92,21 @@ const view = {
             // Ajouter le bloc au conteneur
             this.favoritesContainer.appendChild(result);
         }
-    }
+    },
+    
+    /**
+     * Change l'apparence du bouton favoris
+     * @param {Search} search 
+     */
+    changeFavoriteBtn(search){
+        if (search.isFavorite(view.searchInput.value)) {
+            view.favoriteBtn.innerHTML = "";
+            view.favoriteBtn.innerHTML = "<img src='images/bxs-star.svg' alt='Etoile de favoris' width='22'/>";
+        } else {
+            view.favoriteBtn.innerHTML = "";
+            view.favoriteBtn.innerHTML = "<img src='images/bx-star.svg' alt='Etoile de favoris' width='22'/>";  
+        }
+    },
 };
+
+
