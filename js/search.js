@@ -29,6 +29,7 @@ class Search {
      */
     constructor() {
         this._search = "";
+        this._favorites = [];
     }
 
     /**
@@ -70,7 +71,11 @@ class Search {
      * @param {string} value
      */
     addFavorite(value) {
-        this._favorites.push(value);
+        if(this._favorites == null){
+            this._favorites = [value];
+        } else {
+            this._favorites.push(value);
+        }
     }
 
     /**
@@ -154,6 +159,9 @@ class Search {
     isFavorite(search) {
         let favorites = this.getFavorites();
         let isFavorite = false;
+        if (favorites == null) {
+            return false;
+        }
         favorites.forEach(element => {
             if (element == search) {
                 isFavorite = true;

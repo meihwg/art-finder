@@ -72,7 +72,7 @@ const view = {
         // Récupérer les favoris à afficher
         let favorites = search.getFavorites();
         // Si il n'y a pas de favoris
-        if (favorites.length == 0) {
+        if (favorites == null || favorites.length == 0) {
             this.favoritesContainer.innerHTML = "<p>Vous n'avez pas encore de favoris</p>";
             return;
         }
