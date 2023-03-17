@@ -11,6 +11,9 @@ const view = {
     favoriteBtn: document.getElementById("favorite-button"),
     resultsContainer: document.getElementById("results-container"),
     favoritesContainer: document.getElementById("favorites-list"),
+    favoritesSearch : document.querySelectorAll(".favorite-search"),
+    favoritesDelete : document.querySelectorAll(".favorite-delete"),
+    favorites : document.querySelectorAll(".favorite-button"),
 
     /**
      * Affiche les résultats
@@ -77,13 +80,14 @@ const view = {
             result.classList.add("favorite-button");
 
             // Ajouter le nom du favoris
-            result.innerHTML = "<span title='Relancer la recherche'>" + favorites[i] + "</span> <p title='Supprimer le favoris'>x</p>";
+            result.innerHTML = "<a class='favorite-search' title='Relancer la recherche'>" + favorites[i] + "</a> <p class='favorite-delete' title='Supprimer le favoris'>x</p>";
+
+            // Ajouter un listener sur le favoris
+            let favoriteText = result.querySelector(".favorite-search");
+            favoriteText.addEventListener("click", searchClickListeners);
 
             // Ajouter le bloc au conteneur
             this.favoritesContainer.appendChild(result);
         }
-
-        // Changer l'étoile
-        
     }
 };

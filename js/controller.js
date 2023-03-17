@@ -35,3 +35,21 @@ view.favoriteBtn.addEventListener("click", function () {
     // Afficher les favoris
     view.displayFavorites(search);
 });
+
+// Lorsque l'utilisateur clique sur un favoris
+let searchClickListeners = function(event) {
+    // Récupérer la balise a du bouton
+    let fav = event.target.parentNode;
+    // Récupérer la valeur du favoris
+    fav = fav.firstChild.innerHTML;
+    // Modifier la recherche
+    search.setSearch(fav);
+    // Afficher la recherche dans le champ de recherche
+    view.searchInput.value = fav;
+    // Lancer la recherche
+    search.getSearchResults()
+        .then(() => {
+            // Afficher les résultats
+            view.displayResults(search);
+        });
+}

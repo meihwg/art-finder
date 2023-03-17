@@ -165,7 +165,7 @@ main {
 .favorite-button p:hover {
   cursor: pointer;
 }
-.favorite-button span:hover{
+.favorite-button a:hover{
   cursor: pointer;
 }
 #message{

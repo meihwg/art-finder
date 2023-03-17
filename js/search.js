@@ -49,12 +49,21 @@ class Search {
     }
 
     /**
-     * Retourne un favoris
+     * Retourne les favoris
      * @returns {array}
      */
     getFavorites() {
         this.loadFavorites();
         return this._favorites;
+    }
+
+    /** 
+     * Retourne le favoris à l'index donné
+     * @param {number} index
+     */
+    getFavoriteAtIndex(index) {
+        this.loadFavorites();
+        return this._favorites[index];
     }
 
     /**
