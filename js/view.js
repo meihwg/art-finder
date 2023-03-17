@@ -24,6 +24,11 @@ const view = {
         let results = search.getResults();
         // Vider le conteneur
         this.resultsContainer.innerHTML = "";
+        // Si il n'y a pas de résultats
+        if (results.length == 0) {
+            this.resultsContainer.innerHTML = "<p>Aucun résultat</p>";
+            return;
+        }
         // Pour chaque résultat
         for (let i = 0; i < results.length; i++) {
             // Créer un bloc
