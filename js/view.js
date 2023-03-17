@@ -15,6 +15,7 @@ const view = {
     favoritesDelete : document.querySelectorAll(".favorite-delete"),
     favorites : document.querySelectorAll(".favorite-button"),
     waitBlock : document.getElementById("wait-block"),
+    suggestsList : document.getElementById("suggests-list"),
 
     /**
      * Affiche les résultats
@@ -76,8 +77,11 @@ const view = {
             this.favoritesContainer.innerHTML = "<p>Vous n'avez pas encore de favoris</p>";
             return;
         }
-        // Vider le conteneur
+
+        // Vider les conteneurs
         this.favoritesContainer.innerHTML = "";
+        this.suggestsList.innerHTML = "";
+
         // Pour chaque favoris
         for (let i = 0; i < favorites.length; i++) {
             // Créer un bloc
@@ -97,6 +101,11 @@ const view = {
 
             // Ajouter le bloc au conteneur
             this.favoritesContainer.appendChild(result);
+
+            // Ajouter le favoris aux suggestions
+            let suggest = document.createElement("option");
+            suggest.value = favorites[i];
+            this.suggestsList.appendChild(suggest);
         }
     },
     
