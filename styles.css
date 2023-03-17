@@ -115,6 +115,10 @@ main {
 #separator {
   border-left: 2px solid var(--black);
 }
+#wait-block {
+  display: none;
+  margin: 10px;
+}
 
 /* Results */
 

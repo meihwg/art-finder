@@ -15,14 +15,20 @@ window.addEventListener("load", async function () {
 
 // Lorsque l'utilisateur clique sur le bouton de recherche
 view.searchBtn.addEventListener("click", async function () {
+    // Afficher le loader
+    view.waitBlock.style.display = "block";
     // Récupérer la de la recherche
     let value = view.searchInput.value;
     // Modifier la recherche
     search.setSearch(value);
     // Lancer la recherche
-    await search.getSearchResults();
-    // Afficher les résultats
-    view.displayResults(search);
+    search.getSearchResults()
+        .then(() => {
+            // Afficher les résultats
+            view.displayResults(search);
+            // Cacher le loader
+            view.waitBlock.style.display = "none";
+        });
 });
 
 // Lorsque l'utilisateur clique sur le bouton favoris

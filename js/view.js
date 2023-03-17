@@ -14,6 +14,7 @@ const view = {
     favoritesSearch : document.querySelectorAll(".favorite-search"),
     favoritesDelete : document.querySelectorAll(".favorite-delete"),
     favorites : document.querySelectorAll(".favorite-button"),
+    waitBlock : document.getElementById("wait-block"),
 
     /**
      * Affiche les résultats
