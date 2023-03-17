@@ -17,15 +17,16 @@
 
           <h1 class="white">Recherche d'oeuvres d'art</h1>
           <p id="intro" class="white">Cette page utilise l'API publique de l'<a href="https://api.artic.edu/docs/" target="_blank" id="link" title="Art Institute of Chicago API">Institut d'Art de Chicago</a>
-            pour permettre de rechercher des oeuvres d'art en fonction de mots-clés. Vous pouvez taper un titre, un auteur, un sujet, un thème, un courant, etc.. Malheureusement l'API n'est
-            disponible qu'en anglais, elle ne comprend donc que les recherches en anglais et n'affiche les informations qu'en anglais.</p>
+            pour permettre de rechercher des oeuvres d'art en fonction de mots-clés. Vous pouvez taper un titre, un auteur, un sujet, un thème, un courant, etc..
+            Vous pouvez également ajouter des recherches à vos favoris pour les relancer en un clic.
+            Malheureusement l'API n'est disponible qu'en anglais, elle ne comprend donc que les recherches en anglais et n'affiche les informations qu'en anglais.</p>
 
           <div id="search">
             <input type="text" id="search-input" placeholder="Rechercher une oeuvre d'art" list="suggests-list"/>
             <datalist id="suggests-list"></datalist>
             <button id="favorite-button" title="Ajouter aux favoris"><img src="images/bx-star.svg" alt="Etoile de favoris" width="22"/></button>
             <button id="search-button"  title="Lancer la recherche"><img src="images/bx-search.svg" alt="Loupe pour recherche" width="22"/></button>
-            <input type="number" min="1" max="100" id="limit-input" value="32">
+            <input type="number" min="1" max="100" id="limit-input" value="32" title="Nombre de résultats à afficher">
           </div>
 
         </div>
