@@ -62,11 +62,13 @@ let deleteClickListeners = function(event) {
     let fav = event.target.parentNode;
     // Récupérer la valeur du favoris
     fav = fav.firstChild.innerHTML;
-    // Supprimer le favoris
-    search.removeFavorite(fav);
-    search.saveFavorites();
-    // Afficher les favoris
-    view.displayFavorites(search);
+    if (confirm("Voulez-vous vraiment supprimer ce favoris ?")) {
+        // Supprimer le favoris
+        search.removeFavorite(fav);
+        search.saveFavorites();
+        // Afficher les favoris
+        view.displayFavorites(search);
+    }
 }
 
 // Lorsque l'utilisateur tape un caractère dans le champ de recherche

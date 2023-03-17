@@ -75,10 +75,10 @@ class Search {
 
     /**
      * Supprime un favoris
-     * @param {number} index
+     * @param {string} value
      */
-    removeFavorite(index) {
-        this._favorites.splice(index, 1);
+    removeFavorite(value) {
+        this._favorites.splice(this._favorites.indexOf(value), 1);
     }
 
     /**
