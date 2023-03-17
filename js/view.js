@@ -85,6 +85,9 @@ const view = {
             // Ajouter un listener sur le favoris
             let favoriteText = result.querySelector(".favorite-search");
             favoriteText.addEventListener("click", searchClickListeners);
+            // Ajouter un listener sur le bouton de suppression
+            let favoriteDelete = result.querySelector(".favorite-delete");
+            favoriteDelete.addEventListener("click", deleteClickListeners);
 
             // Ajouter le bloc au conteneur
             this.favoritesContainer.appendChild(result);

@@ -53,3 +53,16 @@ let searchClickListeners = function(event) {
             view.displayResults(search);
         });
 }
+
+// Lorsque l'utilisateur clique sur un bouton de suppression de favoris
+let deleteClickListeners = function(event) {
+    // Récupérer la balise a du bouton
+    let fav = event.target.parentNode;
+    // Récupérer la valeur du favoris
+    fav = fav.firstChild.innerHTML;
+    // Supprimer le favoris
+    search.removeFavorite(fav);
+    search.saveFavorites();
+    // Afficher les favoris
+    view.displayFavorites(search);
+}
