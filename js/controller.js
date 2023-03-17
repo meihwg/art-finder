@@ -86,8 +86,10 @@ let deleteClickListeners = function(event) {
 // Lorsque l'utilisateur tape un caractère dans le champ de recherche
 view.searchInput.addEventListener("keyup", function (event) {
     // Si la touche est entrée
-    if (event.keyCode === 13) {
-        // Récupérer la de la recherche
+    if (event.key === "Enter") {
+        // Afficher le loader
+        view.waitBlock.style.display = "block";
+        // Récupérer la valeur de la recherche
         let value = view.searchInput.value;
         // Modifier la recherche
         search.setSearch(value);
@@ -96,6 +98,8 @@ view.searchInput.addEventListener("keyup", function (event) {
             .then(() => {
                 // Afficher les résultats
                 view.displayResults(search);
+                // Cacher le loader
+                view.waitBlock.style.display = "none";
             });
     }
 
