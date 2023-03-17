@@ -46,6 +46,8 @@ let searchClickListeners = function(event) {
     search.setSearch(fav);
     // Afficher la recherche dans le champ de recherche
     view.searchInput.value = fav;
+    // Changer l'apparence du bouton favoris
+    changeFavoriteBtn();
     // Lancer la recherche
     search.getSearchResults()
         .then(() => {
@@ -65,4 +67,31 @@ let deleteClickListeners = function(event) {
     search.saveFavorites();
     // Afficher les favoris
     view.displayFavorites(search);
+}
+
+// Lorsque l'utilisateur tape un caractère dans le champ de recherche
+view.searchInput.addEventListener("keyup", function (event) {
+    // Si la touche est entrée
+    if (event.keyCode === 13) {
+        // Lancer la recherche
+        search.getSearchResults()
+            .then(() => {
+                // Afficher les résultats
+                view.displayResults(search);
+            });
+    }
+
+    // Changer l'apparence du bouton favoris
+    changeFavoriteBtn();
+});
+
+// Change l'apparence du bouton favoris
+let changeFavoriteBtn = function() {
+    if (search.isFavorite(view.searchInput.value)) {
+        view.favoriteBtn.innerHTML = "";
+        view.favoriteBtn.innerHTML = "<img src='images/bxs-star.svg' alt='Etoile de favoris' width='22'/>";
+    } else {
+        view.favoriteBtn.innerHTML = "";
+        view.favoriteBtn.innerHTML = "<img src='images/bx-star.svg' alt='Etoile de favoris' width='22'/>";  
+    }
 }

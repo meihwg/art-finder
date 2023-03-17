@@ -44,7 +44,6 @@ class Search {
      * @param {string} value
      */
     setSearch(value) {
-        // TODO: Vérifier si la recherche est valide
         this._search = "https://api.artic.edu/api/v1/artworks/search?q=" + value.replace(" ", ",") + "&fields=title,image_id,description,date_start,date_end,dimensions,medium_display,artwork_type_title,artist_title&limit=30";
     }
 
@@ -145,5 +144,21 @@ class Search {
         } catch (error) {
             console.error("Echec de la recherche" + error);
         }
+    }
+
+    /**
+     * Retourne si la recherche est en favoris
+     * @param {string} search
+     * @returns {boolean}
+     */
+    isFavorite(search) {
+        let favorites = this.getFavorites();
+        let isFavorite = false;
+        favorites.forEach(element => {
+            if (element == search) {
+                isFavorite = true;
+            }
+        });
+        return isFavorite;
     }
 }
