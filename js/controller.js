@@ -28,7 +28,7 @@ view.searchBtn.addEventListener("click", async function () {
 // Lorsque l'utilisateur clique sur le bouton favoris
 view.favoriteBtn.addEventListener("click", function () {
     // Enregistrer le favoris
-    if (view.searchInput.value != "") {
+    if (view.searchInput.value != "" && !search.isFavorite(view.searchInput.value)) {
         search.addFavorite(view.searchInput.value);
     }
     search.saveFavorites();
@@ -83,11 +83,4 @@ view.searchInput.addEventListener("keyup", function (event) {
 
     // Changer l'apparence du bouton favoris
     view.changeFavoriteBtn(search);
-
-    // Si le champ de recherche est vide
-    if (view.searchInput.value == "") {
-        favoriteBtn.disabled = true;
-    } else {
-        favoriteBtn.disabled = false;
-    }
 });
